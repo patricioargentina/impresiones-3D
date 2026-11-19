@@ -1,26 +1,71 @@
 @import "tailwindcss";
 
+/* Paleta: neutros cálidos de taller, con un verde de filamento como acento.
+   Cada segmento tiene su propio color de filamento (ver src/data/catalogo.ts). */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --fondo: #f6f5f1;
+  --superficie: #ffffff;
+  --texto: #1d1f1c;
+  --tenue: #63675f;
+  --linea: #e0ddd4;
+  --acento: #3f6f34;
+  --acento-suave: #e4eedd;
+  --aviso: #94591f;
+  --aviso-suave: #f6e9d8;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --fondo: #141513;
+    --superficie: #1c1e1b;
+    --texto: #ecebe6;
+    --tenue: #a2a69c;
+    --linea: #30332e;
+    --acento: #8cc47a;
+    --acento-suave: #24331f;
+    --aviso: #e6ad6e;
+    --aviso-suave: #3a2a19;
+    color-scheme: dark;
   }
 }
 
+@theme inline {
+  --color-fondo: var(--fondo);
+  --color-superficie: var(--superficie);
+  --color-texto: var(--texto);
+  --color-tenue: var(--tenue);
+  --color-linea: var(--linea);
+  --color-acento: var(--acento);
+  --color-acento-suave: var(--acento-suave);
+  --color-aviso: var(--aviso);
+  --color-aviso-suave: var(--aviso-suave);
+  --font-sans: "Inter Variable", system-ui, sans-serif;
+  --font-display: "Sora", "Inter Variable", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3 { text-wrap: balance; }
+
+:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
+
+/* Etiqueta en mayúsculas */
+.etiqueta {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+
+/* Líneas de capa: imitan la superficie de una pieza impresa en 3D */
+.capas {
+  color: var(--seg);
+  background:
+    repeating-linear-gradient(0deg, color-mix(in oklab, var(--seg) 14%, transparent) 0 1px, transparent 1px 5px),
+    color-mix(in oklab, var(--seg) 12%, var(--superficie));
 }
