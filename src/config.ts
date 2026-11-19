@@ -4,7 +4,7 @@ export const NEGOCIO = {
    * Número de WhatsApp con código de país y sin espacios ni "+", por ejemplo "5491123456789".
    * Mientras esté vacío, el botón "Consultar" abre WhatsApp para elegir el contacto.
    */
-  whatsapp: "",
+  whatsapp: "5493855720545",
 };
 
 export function linkWhatsApp(mensaje: string) {
